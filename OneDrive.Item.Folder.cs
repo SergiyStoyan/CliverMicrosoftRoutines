@@ -4,6 +4,7 @@
 //********************************************************************************************
 using System;
 using Microsoft.Graph;
+using Microsoft.Graph.Models;
 using System.Text.RegularExpressions;
 using System.Linq;
 using System.Threading;
@@ -39,7 +40,7 @@ namespace Cliver
                 DriveItem di = new DriveItem
                 {
                     Name = m.Groups["Name"].Value,
-                    Folder = new Microsoft.Graph.Folder
+                    Folder = new Microsoft.Graph.Models.Folder
                     {
                     },
                     AdditionalData = new Dictionary<string, object>()

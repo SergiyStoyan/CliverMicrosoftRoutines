@@ -4,10 +4,12 @@
 //********************************************************************************************
 using System;
 using Microsoft.Graph;
+using Microsoft.Graph.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Identity.Client;
 using System.Collections.Generic;
+using Azure.Identity;
 
 namespace Cliver
 {
@@ -54,6 +56,22 @@ namespace Cliver
                 account = Task.Run(() => application.GetAccountsAsync()).Result.FirstOrDefault();
             else
                 account = Task.Run(() => application.GetAccountsAsync()).Result.FirstOrDefault(a => a.Username == MicrosoftSettings.MicrosoftAccount);
+
+
+
+
+            //var options = new InteractiveBrowserCredentialOptions
+            //{
+            //    TenantId = tenantId,
+            //    ClientId = clientId,
+            //    AuthorityHost = AzureAuthorityHosts.AzurePublicCloud,
+
+            //    // RedirectUri must be http://localhost or http://localhost:PORT,
+            //    // and must be added to the RedirectUris in the Azure app registration
+
+            //    RedirectUri = new Uri("http://localhost"),
+            //};
+            //InteractiveBrowserCredential interactiveCredential = new InteractiveBrowserCredential();
             return new GraphServiceClient(new DelegateAuthenticationProvider(async (requestMessage) =>
             {
                 await authenticate();

@@ -3,7 +3,7 @@
 //        http://www.cliversoft.com
 //********************************************************************************************
 using System;
-using Microsoft.Graph;
+using Microsoft.Graph.Models;
 using System.Text.RegularExpressions;
 using System.Linq;
 using System.Threading;
